@@ -48,14 +48,19 @@
 	</div>
 
 	<div class="panel panel-black">
-		<div class="panel-heading">
-			<h4>OFFICIAL RECEIPT</h4>
-		</div>
 		<div class="panel-body">
-			
+			<div class="form-group">
+				<label>Amount Tendered</label>
+				<small><?php echo validation_errors(); ?></small>
+				<input type="number" class="form-control flat-form input-sm" id="tendered" placeholder="Amount Tendered" autocomplete="off" required>
+			</div>
+			<div class="form-group">
+				<label>Change</label>
+				<input type="number" class="form-control flat-form input-sm" id="change" placeholder="0.00" readonly>
+			</div>
 		</div>
 		<div class="panel-footer">
-			<button class="btn btn-default flat-form btn-sm">Proceed</button>
+			<?= form_open('posts/pay/'.$post['id'])?><button class="btn btn-default flat-form btn-sm">Proceed</button></form>
 		</div>
 	</div>
 </div>

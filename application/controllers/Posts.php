@@ -93,5 +93,9 @@
 			$data['title'] = 'Edit Product';
 			$data['post'] = $this->post_model->get_cart();
 		}
+
+		public function pay(){
+			$this->form_validation->set_rules('tendered', 'Amount Tendered', 'required');
+		}
 	}
 ?>

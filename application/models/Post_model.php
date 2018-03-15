@@ -81,9 +81,10 @@
 			}else{
 				$this->db->query("UPDATE product_tbl SET items = '$new_item' WHERE product_id = '$product_id'");
 			}
-			//Update items in product table.
-			
+		}
 
+		public function pay_product(){
+			
 		}
 	}
 ?>
