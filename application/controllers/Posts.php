@@ -86,7 +86,7 @@
 
 		public function addto(){
 			$this->post_model->add_product();
-			redirect('posts/');
+			redirect('posts/cart');
 		}
 	}
 ?>

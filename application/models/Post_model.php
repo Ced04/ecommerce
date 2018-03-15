@@ -18,6 +18,17 @@
 			return $query->row_array();
 		}
 
+		public function get_cart($id = FALSE){
+			if ($id === FALSE) {
+				$this->db->order_by('id', 'DESC');
+				$query = $this->db->get('cart_tbl');
+				return $query->result_array();
+			}
+
+			$query = $this->db->get_where('product_tbl', array('id' => $id));
+			return $query->row_array();
+		}
+
 		public function create_post(){
 
 			$product_id = $_POST['product_id'];

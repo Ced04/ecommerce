@@ -10,6 +10,8 @@
 
 			$data['title'] = ucfirst($page);
 
+			$data['posts'] = $this->post_model->get_cart();
+
 			$this->load->view('templates/header');
 			$this->load->view('pages/'.$page, $data);
 			$this->load->view('templates/footer');

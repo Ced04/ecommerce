@@ -27,31 +27,31 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td style="text-align: center;font-size: 12px">iPhone 5s (1)</td>
-						<td style="text-align: center;font-size: 12px">Php 6000.00</td>
-					</tr>
-					<tr>
-						<td style="text-align: center;font-size: 12px">iPhone 5s (1)</td>
-						<td style="text-align: center;font-size: 12px">Php 6000.00</td>
-					</tr>
-					<tr>
-						<td style="text-align: center;font-size: 12px">iPhone 5s (1)</td>
-						<td style="text-align: center;font-size: 12px">Php 6000.00</td>
-					</tr>
+					<?php foreach ($posts as $post) : ?>
+						<tr>
+							<td style="text-align: center;font-size: 12px"><?= $post['product_name'].' (*'.$post['items'].')' ?></td>
+							<td style="text-align: center;font-size: 12px"><?= 'Php '.$post['price']; ?></td>
+						</tr>
+					<?php endforeach; ?>
+
+					
 				</tbody>
 			</table>
-			<small>TOTAL AMOUNT : <b style="color: green">Php 6000.00</b></small>
+			<small>TOTAL AMOUNT : <b style="color: green"><?= 'Php '.$post['total_amount'] ?></b></small>
 		</div>
 	</div>
 </div>
 <div class="col-md-7">
 	<div class="panel panel-black">
 		<div class="panel-heading">
-			<h4>MY CART</h4>
+			<h4 class="text-center">MY CART</h4>
 		</div>
 		<div class="panel-body">
-			
+			<?php foreach ($posts as $post) : ?>
+				<div class="col-sm-3 img-thumbnail">
+					<img style="height: 110px;width: 120px" src="<?= base_url(); ?>assets/css/img/1.jpg" />
+					<p><?php echo ucwords($post['product_name']); ?></p>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </div>
