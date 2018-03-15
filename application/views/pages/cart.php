@@ -27,17 +27,35 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php $total_amount = 0; ?>
 					<?php foreach ($posts as $post) : ?>
 						<tr>
 							<td style="text-align: center;font-size: 12px"><?= $post['product_name'].' (*'.$post['items'].')' ?></td>
 							<td style="text-align: center;font-size: 12px"><?= 'Php '.$post['price']; ?></td>
 						</tr>
-					<?php endforeach; ?>
 
+						<?php
+							setlocale(LC_MONETARY,"en_US");
+							$total_amount = $total_amount + $post['total_amount'];
+						?>
+					<?php endforeach; ?>
 					
+
 				</tbody>
 			</table>
-			<small>TOTAL AMOUNT : <b style="color: green"><?= 'Php '.$post['total_amount'] ?></b></small>
+			<small>TOTAL AMOUNT : <b style="color: green"><?= 'Php '.sprintf('%0.2f', $total_amount) ?></b></small>
+		</div>
+	</div>
+
+	<div class="panel panel-black">
+		<div class="panel-heading">
+			<h4>OFFICIAL RECEIPT</h4>
+		</div>
+		<div class="panel-body">
+			
+		</div>
+		<div class="panel-footer">
+			<button class="btn btn-default flat-form btn-sm">Proceed</button>
 		</div>
 	</div>
 </div>
@@ -51,6 +69,7 @@
 				<div class="col-sm-3 img-thumbnail">
 					<img style="height: 110px;width: 120px" src="<?= base_url(); ?>assets/css/img/1.jpg" />
 					<p><?php echo ucwords($post['product_name']); ?></p>
+				</div>
 			<?php endforeach; ?>
 		</div>
 	</div>

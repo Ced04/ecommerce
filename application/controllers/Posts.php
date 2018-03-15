@@ -86,7 +86,12 @@
 
 		public function addto(){
 			$this->post_model->add_product();
-			redirect('posts/cart');
+			redirect('posts/');
+		}
+
+		public function cart(){
+			$data['title'] = 'Edit Product';
+			$data['post'] = $this->post_model->get_cart();
 		}
 	}
 ?>
