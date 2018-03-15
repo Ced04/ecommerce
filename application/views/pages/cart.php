@@ -6,13 +6,20 @@
 		<div class="panel-body">
 			<table class="table table-bordered">
 				<thead>
+					<?php
+						$gen = "0123456789";
+						$or = substr(str_shuffle($gen), 0, 10);
+
+						date_default_timezone_set('Asia/Manila');
+						$date = date('M d, Y h:i:s A', time());
+					?>
 					<tr>
-						<th><small>OR # : 09238427</small></th>
-						<th><small>Mar 13, 2018 / 10:09PM</small></th>
+						<th><small>OR # : <?= $or ?></small></th>
+						<th><small id="time"><?= $date ?></small></th>
 					</tr>
 				</thead>
 			</table>
-			<table class="table table-bordered">
+			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th style="text-align: center;font-size: 12px">PRODUCT NAME</th>
@@ -20,6 +27,14 @@
 					</tr>
 				</thead>
 				<tbody>
+					<tr>
+						<td style="text-align: center;font-size: 12px">iPhone 5s (1)</td>
+						<td style="text-align: center;font-size: 12px">Php 6000.00</td>
+					</tr>
+					<tr>
+						<td style="text-align: center;font-size: 12px">iPhone 5s (1)</td>
+						<td style="text-align: center;font-size: 12px">Php 6000.00</td>
+					</tr>
 					<tr>
 						<td style="text-align: center;font-size: 12px">iPhone 5s (1)</td>
 						<td style="text-align: center;font-size: 12px">Php 6000.00</td>

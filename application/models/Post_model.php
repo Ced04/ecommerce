@@ -37,14 +37,42 @@
 		public function update_post(){
 			$id = url_title($this->input->post('id'));
 
-			$data = array(
-				'product_id' => $this->input->post('product_id'),
-				'product_name' => $this->input->post('product_name'),
-				'items' => $this->input->post('item'),
-				'price' => $this->input->post('product_price')
-			);
-			$this->db->where('id', $this->input->post('id'));
-			return $this->db->update('product_tbl', $data);
+			$product_id = $_POST['product_id'];
+			$product_name = $_POST['product_name'];
+			$item = $_POST['item'];
+			$price = $_POST['product_price'];
+
+			$this->db->query("UPDATE product_tbl SET product_name = '$product_name', items = '$item', price = '$price' WHERE product_id = '$product_id'");
+		}
+
+		public function add_product(){
+			$id = url_title($this->input->post('id'));
+
+			$gen = "1234567890";
+			$cart_id = substr(str_shuffle($gen), 0, 7);
+
+			$product_id = $_POST['product_id'];
+			$product_name = $_POST['product_name'];
+			$item = $_POST['item'];
+			$items = $_POST['items'];
+			$price = $_POST['product_price'];
+
+			$total_amount = $item*$price;
+
+			$new_item = $items-$item;
+
+
+			//Add to cart
+			$this->db->query("INSERT INTO cart_tbl VALUES(NOT NULL, '$cart_id', '$product_id','$product_name', '$item', '$price', '$total_amount')");
+
+			if ($items == 0) {
+				echo "Sorry item is not available";
+			}else{
+				$this->db->query("UPDATE product_tbl SET items = '$new_item' WHERE product_id = '$product_id'");
+			}
+			//Update items in product table.
+			
+
 		}
 	}
 ?>

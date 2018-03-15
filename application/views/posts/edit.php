@@ -7,7 +7,7 @@
 		<?php echo form_open('posts/update/')?>
 			<div class="form-group">
 					<label>Product ID</label>
-					<input type="text" class="form-control flat-form" name="product_id" placeholder="Product ID" value="<?= $post['product_id'] ?>">
+					<input type="text" class="form-control flat-form" name="product_id" value="<?= $post['product_id'] ?>" readonly>
 				</div>
 				<div class="form-group">
 					<label>Product Name</label>

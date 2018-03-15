@@ -1,4 +1,4 @@
-<?php echo validation_errors(); ?>
+
 <div class="col-md-4">
 	<div class="panel panel-black">
 		<div class="panel-heading">
@@ -6,9 +6,13 @@
 		</div>
 		<div class="panel-body">
 			<?php echo form_open('posts/create'); ?>
+			<?php echo validation_errors(); 
+				$gen = '1234567890';
+				$product_id = substr(str_shuffle($gen), 0, 10)
+			?>
 				<div class="form-group">
 					<label>Product ID</label>
-					<input type="text" class="form-control flat-form" name="product_id" placeholder="Product ID">
+					<input type="text" class="form-control flat-form" name="product_id" value="<?= $product_id ?>" readonly>
 				</div>
 				<div class="form-group">
 					<label>Product Name</label>
@@ -55,10 +59,10 @@
 									<td><?php echo $i++; ?></td>
 									<td><?php echo $post['product_id']; ?></td>
 									<td><?php echo $post['product_name']; ?></td>
-									<td><a href="#">view image</a></td>
+									<td><a href="#">Upload Image</a></td>
 									<td><?php echo $post['price']; ?></td>
 									<td><?php echo $post['items']; ?></td>
-									<td><a href="posts/edit/<?php echo $post['id']; ?>">Edit</a> | <a href="posts/delete/<?php echo $post['id']; ?>">Delete</a></td>
+									<td><a href="edit/<?php echo $post['id']; ?>">Edit</a> | <a href="delete/<?php echo $post['id']; ?>">Delete</a></td>
 								</tr>
 							<?php endforeach; ?>
 						</tbody>
